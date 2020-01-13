@@ -6,7 +6,7 @@ var copyBtn = document.querySelector(".btn2");
 var charLow = "abcdefghijklmnopqrstuvwxyz";
 var charUp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var num = "0123456789";
-var sym = " !\"#$%&'()*+,-./:;<=>?@[]^_`{|}~";
+var sym = "!\"#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 
 var randomFunction = {
 	lower: getLower,
@@ -19,11 +19,21 @@ generateBtn.addEventListener("click", function() {
 	alert(
 		"Please select character types and number of characters to generate a random password."
 	);
-	var selLower = confirm("Include lowercase?");
-	var selUpper = confirm("Include uppercase?");
-	var selNum = confirm("Include numbers?");
-	var selSym = confirm("Include Symbols");
-	var selLength = +prompt("Enter a number between 8 and 128");
+	var selLower = confirm(
+		'Press "OK" to include lowercase letters. Press "Cancel" to exclude them.'
+	);
+	var selUpper = confirm(
+		'Press "OK" to include uppercase letters. Press "Cancel" to exclude them.'
+	);
+	var selNum = confirm(
+		'Press "OK" to include numbers. Press "Cancel" to exclude them.'
+	);
+	var selSym = confirm(
+		'Press "OK" to include symbols. Press "Cancel" to exclude them.'
+	);
+	var selLength = +prompt(
+		"Enter a number between 8 and 128 to determine the number of characters in the password."
+	);
 
 	passwordEl.innerHTML = generatePassword(
 		selLower,
@@ -40,7 +50,7 @@ function generatePassword(lower, upper, number, symbol, length) {
 	// Counts the number of character types
 	var typesCount = lower + upper + number + symbol;
 	// Array of objects filters out character types not chosen (false)
-	var typesArray = [{ lower }, { upper }, { number }, { symbol }].filter(
+	var typesArray = [{ lower }, { upper }, { num }, { sym }].filter(
 		item => Object.values(item)[0]
 	);
 	if (typesCount === 0 || length < 8 || length > 128) {
@@ -51,13 +61,12 @@ function generatePassword(lower, upper, number, symbol, length) {
 	for (var i = 0; i < length; i += typesCount) {
 		typesArray.forEach(type => {
 			var functionName = Object.keys(type)[0];
-			console.log(functionName);
 
 			randomPassword += randomFunction[functionName]();
 		});
 	}
 
-	console.log(generatePassword());
+	console.log(randomPassword);
 }
 
 // Generates random lowercase letter
