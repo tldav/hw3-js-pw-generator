@@ -9,3 +9,5 @@ Javascript selects random characters amongst the selected character types and cr
 The password is displayed to the user.
 
 The user has the option to copy to the clipboard with a button press.
+
+If the user selects no character types or
