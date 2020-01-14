@@ -13,3 +13,7 @@ The user has the option to copy to the clipboard with a button press. The user i
 If the user selects no character types, a password is not generated. If the user enters non-numeric characters or numbers not between 8 and 128 for the password length, a password is not generated.
 
 Includes obscure homestarrunner reference.
+
+Deployed page can be found here: https://tldav.github.io/hw3-js-pw-generator/
+
+![password generator demo](/assets/hw3-JS-demo.PNG)
