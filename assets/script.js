@@ -19,7 +19,7 @@ var randomFunction = {
 // "Generate Password" button provides instructions and starts the user selection process
 generateBtn.addEventListener("click", function() {
 	alert(
-		"Please select character types and number of characters to generate a random password."
+		"Please select at least one character type and enter the number of characters to generate a random password."
 	);
 	var selLower = confirm(
 		'Press "OK" to include lowercase letters. Press "Cancel" to exclude them.'
@@ -57,7 +57,7 @@ function generatePassword(lower, upper, number, symbol, length) {
 		item => Object.values(item)[0]
 	);
 	// Alerts the user when a password cannot be generated.
-	if (typesCount === 0 || length < 8 || length > 128) {
+	if (typesCount === 0 || length < 8 || length > 128 || isNaN(length)) {
 		alert(
 			"You must select at least one character type. Number of characters must be between 8 and 128. You can't get ye flask!"
 		);
