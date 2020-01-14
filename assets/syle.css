@@ -19,6 +19,8 @@ h5 {
 	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
 		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 	font-weight: bold;
+	word-wrap: break-word;
+	max-width: calc(100% - 40px);
 }
 
 .border-dashed {

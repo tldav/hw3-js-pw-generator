@@ -16,6 +16,24 @@ var randomFunction = {
 	num: getNum,
 	sym: getSym
 };
+
+// Copy to clipboard
+copyBtn.addEventListener("click", function() {
+	var textarea = document.createElement("textarea");
+	var password = passwordEl.innerText;
+
+	if (password === "Your Secure Password") {
+		return;
+	}
+
+	textarea.value = password;
+	document.body.appendChild(textarea);
+	textarea.select();
+	document.execCommand("copy");
+	textarea.remove();
+	alert("Your password has been copied to the clipboard.");
+});
+
 // "Generate Password" button provides instructions and starts the user selection process
 generateBtn.addEventListener("click", function() {
 	alert(
