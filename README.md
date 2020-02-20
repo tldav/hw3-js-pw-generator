@@ -1,4 +1,4 @@
-# hw3-js-pw-generator
+# password-generator
 
 Random Password Generator
 
@@ -14,6 +14,6 @@ If the user selects no character types, a password is not generated. If the user
 
 Includes obscure homestarrunner reference.
 
-Deployed page can be found here: https://tldav.github.io/hw3-js-pw-generator/
+Deployed page can be found here: (https://tldav.github.io/password-generator/)
 
 ![password generator demo](/assets/hw3-JS-demo.PNG)
