@@ -18,7 +18,7 @@ var randomFunction = {
 };
 
 // Copy to clipboard
-copyBtn.addEventListener("click", function() {
+copyBtn.addEventListener("click", function () {
 	var textarea = document.createElement("textarea");
 	var password = passwordEl.innerText;
 
@@ -35,7 +35,7 @@ copyBtn.addEventListener("click", function() {
 });
 
 // "Generate Password" button provides instructions and starts the user selection process
-generateBtn.addEventListener("click", function() {
+generateBtn.addEventListener("click", function () {
 	alert(
 		"Please select at least one character type and enter the number of characters to generate a random password."
 	);
@@ -51,7 +51,7 @@ generateBtn.addEventListener("click", function() {
 	var selSym = confirm(
 		'Press "OK" to include symbols. Press "Cancel" to exclude them.'
 	);
-	var selLength = +prompt(
+	var selLength = prompt(
 		"Enter a number between 8 and 128 to determine the number of characters in the password."
 	);
 
@@ -72,7 +72,7 @@ function generatePassword(lower, upper, number, symbol, length) {
 	var typesCount = lower + upper + number + symbol;
 	// Array of objects filters out character types not chosen (false)
 	var typesArray = [{ lower }, { upper }, { num }, { sym }].filter(
-		item => Object.values(item)[0]
+		(item) => Object.values(item)[0]
 	);
 	// Alerts the user when a password cannot be generated.
 	if (typesCount === 0 || length < 8 || length > 128 || isNaN(length)) {
@@ -83,7 +83,7 @@ function generatePassword(lower, upper, number, symbol, length) {
 	}
 
 	for (var i = 0; i < length; i += typesCount) {
-		typesArray.forEach(type => {
+		typesArray.forEach((type) => {
 			var functionName = Object.keys(type)[0];
 
 			randomPassword += randomFunction[functionName]();
